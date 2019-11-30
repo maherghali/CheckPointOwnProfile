@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Profile from './Profile';
+import profileImg from './profile.png';
+
+
 function App() {
+  const profile = {
+
+    photo: profileImg,
+
+    Name: { firstName: 'Maher', lastName: 'Ghali' },
+
+    profileLink: "https://www.facebook.com/"
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <img src={profile.photo} />
+      <h1 >{profile.Name.firstName} {profile.Name.lastName}</h1>
+      <br />
+      {
+        (profile.profileLink != "") &&
+        <button style={{ backgroundColor: "blue" }} onClick={() => { window.location = profile.profileLink }} >My facebook</button>    
+      }
+       </div>
   );
+
 }
 
 export default App;
